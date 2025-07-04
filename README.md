@@ -36,8 +36,8 @@ Aplikasi ini digunakan untuk mengelola pemesanan kendaraan di perusahaan tambang
     ```
 2. composer install
 3. cp .env.example .env
-php artisan key:generate
-4. php artisan serve
+4. php artisan key:generate
+5. php artisan serve
 
 ## 📊 Physical Data Model
 users
