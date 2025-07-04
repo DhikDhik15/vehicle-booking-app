@@ -54,6 +54,14 @@ vehicles
 - type (angkutan_barang/orang)
 - owned_by (internal/rental)
 
+history_check_vehicles
+- id
+- vehicle_id
+- service_schedule
+- last_service
+- condition (layak/tidak layak)
+- note
+
 drivers
 - id
 - name
