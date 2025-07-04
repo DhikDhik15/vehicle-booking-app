@@ -10,6 +10,8 @@
         <p>Keperluan: {{ $booking->purpose }}</p>
         <p>Tujuan: {{ $booking->destination }}</p>
         <p>Waktu: {{ $booking->start_time }} s/d {{ $booking->end_time }}</p>
+        <p>Kondisi Kendaraan: {{ $booking->vehicle->vehicleCheck->condition}}</p>
+        <p>Catatan Kendaraan: {{ $booking->vehicle->vehicleCheck->note}}</p>
         <p>Status:
             <span
                 class="badge bg-{{ $booking->status == 'approved' ? 'success' : ($booking->status == 'rejected' ? 'danger' : 'warning') }}">

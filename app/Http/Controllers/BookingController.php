@@ -63,7 +63,7 @@ class BookingController extends Controller
 
     public function show(Booking $booking)
     {
-        $booking->load('vehicle', 'driver', 'user', 'approvals');
+        $booking->load('vehicle', 'vehicle.vehicleCheck', 'driver', 'user', 'approvals');
         return view('bookings.show', compact('booking'));
     }
 }
