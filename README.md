@@ -39,7 +39,7 @@ Aplikasi ini digunakan untuk mengelola pemesanan kendaraan di perusahaan tambang
 php artisan key:generate
 4. php artisan serve
 
-# 📊 Physical Data Model
+## 📊 Physical Data Model
 users
 - id
 - name
@@ -86,7 +86,7 @@ logs
 - action (create/approve/reject/update)
 - created_at
 
-# 📈 Activity Diagram
+## 📈 Activity Diagram
 [Admin Login] 
   → [Input Booking Kendaraan]
     → [Tentukan Driver & Approver]
