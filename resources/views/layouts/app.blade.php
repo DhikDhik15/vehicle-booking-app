@@ -20,7 +20,8 @@
                     @auth
                     @if (Auth::user()->role === 'admin')
                     <li class="nav-item"><a class="nav-link" href="{{ route('bookings.index') }}">Bookings</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('reports.index') }}">Reports</a></li> {
+                    <li class="nav-item"><a class="nav-link" href="{{ route('reports.index') }}">Reports</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('products.index') }}">Products</a></li>
                     @elseif (in_array(Auth::user()->role, ['approver_level_1', 'approver_level_2']))
                     <li class="nav-item"><a class="nav-link" href="{{ route('approvals.index') }}">Approval</a></li>
                     @endif
