@@ -36,7 +36,13 @@ class ProductController extends Controller
             'price' => 'required'
         ]);
 
-        ProductModel::create($request->all());
+        $data = [
+            'name' => $request->input('name'),
+            'price' => $request->input('price')
+        ];
+
+        // insert ke tabel
+        ProductModel::create($data); //dalam create harus array
 
         return redirect()->route('products.index')->with('success', 'Produk berhasil dibuat.');
     }
@@ -51,12 +57,11 @@ class ProductController extends Controller
         return view('products.edit', compact('product'));
     }
 
-    public function update(Request $request, ProductModel $product)
+    public function update(Request $request, int $id)
     {
         $request->validate([
             'name' => 'required',
-            'price' => 'required',
-            'description' => 'required'
+            'price' => 'required'
         ]);
 
         $data = ProductModel::find($id)->update($request->all());
