@@ -49,13 +49,19 @@ createApp({
             this.success = false;
 
             try {
-                await axios.put("{{ route('products.update', $product->id) }}", this.form, {
+                await axios.put("{{ route('products.update', ['product_id' => $id]) }}", this.form, {
                     headers: {
                         'X-CSRF-TOKEN': '{{ csrf_token() }}'
                     }
                 });
 
                 this.success = true;
+
+                // Redirect ke index
+                // Delay 2 detik sebelum redirect
+                setTimeout(() => {
+                    window.location.href = "{{ route('products.index') }}";
+                }, 2000);
             } catch (error) {
                 console.error(error.response?.data || error);
                 alert("Terjadi kesalahan saat memperbarui produk!");

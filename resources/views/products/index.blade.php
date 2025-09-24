@@ -7,9 +7,14 @@
 </div>
 
 <div id="app">
-    <div class="controls mb-3">
-      <input class="form-control d-inline-block w-auto" v-model="q" placeholder="Cari produk..." @input="filterLocal">
-      <button class="btn btn-secondary" @click="reload">Reload</button>
+    <div class="controls mb-3 d-flex align-items-center gap-2">
+    <input
+        class="form-control w-auto"
+        v-model="q"
+        placeholder="Cari produk..."
+        @input="filterLocal"
+    >
+    <button class="btn btn-secondary" @click="reload">Cari</button>
     </div>
 
     <div v-if="loading">Memuat produk...</div>

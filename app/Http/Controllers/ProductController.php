@@ -52,24 +52,26 @@ class ProductController extends Controller
         return view('products.show', compact('product'));
     }
 
-    public function edit(ProductModel $product)
+    public function edit(int $id)
     {
-        return view('products.edit', compact('product'));
+        // Mencari data dari model product dengan parameter ID
+        $product = ProductModel::where('id',$id)->first();
+        return view('products.edit', compact('product', 'id'));
     }
 
     public function update(Request $request, int $id)
     {
-        $request->validate([
-            'name' => 'required',
-            'price' => 'required'
-        ]);
-
-        $data = ProductModel::find($id)->update($request->all());
+        $find = ProductModel::find($id);
+         $find->update($request->all());
     }
 
-    public function destroy(ProductModel $product)
+    public function destroy(int $id)
     {
-        $product->delete();
-        return redirect()->route('products.index')->with('success', 'Produk berhasil dihapus.');
+        $find = ProductModel::find($id);
+        $find->delete();
     }
+
+    // QUERY == UPDATE DATA YANG ID NYA ADALAH ...
+    // VERSI ORM / LARAVEL == CARI DATA BERDASARKAN ID, UPDATE DATANYA-> update()
+    // CREATE VERSI LARAVEL == MODEL->create()
 }
